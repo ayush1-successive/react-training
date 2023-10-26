@@ -1,0 +1,7 @@
+.task-text {
+  border: 2px solid orange;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  /* align-items: center; */
+}
