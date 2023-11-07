@@ -18,6 +18,10 @@ const Navigation = () => {
         <Link style={linkStyle} to="/assignment-1">
           Assignment-1
         </Link>
+
+        <Link style={linkStyle} to="/assignment-2">
+          Assignment-2
+        </Link>
       </nav>
     </>
   );
