@@ -14,6 +14,7 @@ import LoginComponent from "./modules/assignment-3/questions/question4/LoginComp
 import ProductList from "./modules/assignment-3/questions/question6/ProductList";
 import ProductDetails from "./modules/assignment-3/questions/question6/ProductDetails";
 import { ErrorPage } from "./components/ErrorPage";
+import Assignment4 from "./modules/assignment-4";
 
 const Router = () => {
   return (
@@ -35,6 +36,9 @@ const Router = () => {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+
+        <Route path="/assignment-4" element={<Assignment4 />} />
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
