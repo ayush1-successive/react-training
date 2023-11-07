@@ -22,6 +22,10 @@ const Navigation = () => {
         <Link style={linkStyle} to="/assignment-2">
           Assignment-2
         </Link>
+
+        <Link style={linkStyle} to="/assignment-3">
+          Assignment-3
+        </Link>
       </nav>
     </>
   );
