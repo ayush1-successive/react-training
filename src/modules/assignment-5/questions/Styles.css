@@ -1,0 +1,21 @@
+input {
+  font-size: 20px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 20px;
+  width: auto;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #026cde; /* Use a blue color for the button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px 20px;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
