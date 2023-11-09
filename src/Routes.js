@@ -1,8 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components";
-import { Assignment1 } from "./modules";
-import Assignment2 from "./modules/assignment-2";
-import Assignment3 from "./modules/assignment-3";
+import {
+  Assignment1,
+  Assignment2,
+  Assignment3,
+  Assignment4,
+  Assignment6,
+} from "./modules";
+
 import Task1 from "./modules/assignment-3/questions/question1/Task1";
 import Task2 from "./modules/assignment-3/questions/question2/Task2";
 import Task3 from "./modules/assignment-3/questions/question3/Task3";
@@ -14,7 +19,6 @@ import LoginComponent from "./modules/assignment-3/questions/question4/LoginComp
 import ProductList from "./modules/assignment-3/questions/question6/ProductList";
 import ProductDetails from "./modules/assignment-3/questions/question6/ProductDetails";
 import { ErrorPage } from "./components/ErrorPage";
-import Assignment4 from "./modules/assignment-4";
 
 const Router = () => {
   return (
@@ -38,6 +42,10 @@ const Router = () => {
         <Route path="/products/:id" element={<ProductDetails />} />
 
         <Route path="/assignment-4" element={<Assignment4 />} />
+        {/* <Route path="/assignment-5" element={<Assignment5 />} />
+        <Route path="/dashboard" element={<AuthRoute />} /> */}
+
+        <Route path="/assignment-6" element={<Assignment6 />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
