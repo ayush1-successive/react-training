@@ -34,10 +34,6 @@ const Navigation = () => {
         <Link style={linkStyle} to="/assignment-5">
           Assignment-5
         </Link>
-
-        <Link style={linkStyle} to="/assignment-6">
-          Assignment-6
-        </Link>
       </nav>
     </>
   );
