@@ -1,0 +1,6 @@
+.user-card {
+  border: 5px solid blue;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+}
