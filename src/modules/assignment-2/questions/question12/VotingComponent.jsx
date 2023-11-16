@@ -1,6 +1,6 @@
 // Task-12
 
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 const voteReducer = (state, action) => {
   switch (action.type) {
@@ -53,16 +53,16 @@ const VotingComponent = () => {
     Ayush: 0,
   };
 
-  const bestCandidate = () => {
-    return Object.entries(candidates).reduce(
-      (acc, [key, value]) => {
-        return value > acc[1] ? [key, value] : acc;
-      },
-      ["-", 0]
-    )[0];
-  };
-
+  const [bestCandidate, setBestCandidate] = useState(["-", 0]);
   const [candidates, dispatch] = useReducer(voteReducer, candidateList);
+
+  useEffect(() => {
+    Object.entries(candidates).forEach((candidate) => {
+      if (candidate[1] > bestCandidate[1]) {
+        setBestCandidate(candidate);
+      }
+    });
+  }, [candidates, bestCandidate]);
 
   return (
     <>
@@ -118,7 +118,7 @@ const VotingComponent = () => {
           ))}
         </tbody>
       </table>
-      <h2>TEAM LEAD is {bestCandidate()}</h2>
+      <h2>TEAM LEAD is {bestCandidate[0]}</h2>
     </>
   );
 };
