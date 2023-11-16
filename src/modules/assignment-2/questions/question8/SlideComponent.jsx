@@ -23,9 +23,9 @@ const SlideComponent = () => {
   const [animationState, setAnimationState] = useState(false);
 
   const handleFrameDuration = (event) => {
-    // Multiply value by 1000 to set interval in ms.
-    // Min interval should be 100 ms.
-    const newInterval = Math.max(100, Number(event.target.value) * 1000);
+    // Time interval cannot be negative.
+    const newInterval = Math.max(0, Number(event.target.value));
+    event.target.value = newInterval;
     setFrameDuration(newInterval);
   };
 
@@ -48,7 +48,7 @@ const SlideComponent = () => {
       <input
         className="button-style"
         type="number"
-        placeholder="Enter interval in sec"
+        placeholder="Enter interval in ms."
         onChange={(event) => handleFrameDuration(event)}
       />
 
