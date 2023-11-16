@@ -4,7 +4,8 @@ import { useState } from "react";
 import "../../index.css";
 
 const tableStyle = {
-  width: "60%",
+  maxWidth: "100px",
+  width: "100px",
   borderCollapse: "collapse",
   border: "2px solid #333",
   margin: "20px auto",
@@ -15,6 +16,9 @@ const tdStyle = {
   border: "2px solid #333",
   padding: "8px",
   textAlign: "center",
+  maxWidth: "100vh",
+  overflowX: "auto",
+  overflowWrap: "break-word",
 };
 
 const useLocalStorage = () => {
