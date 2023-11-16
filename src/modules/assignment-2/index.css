@@ -1,0 +1,17 @@
+.task-text {
+  border: 2px solid orange;
+  padding: 30px;
+  margin: 10px;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-style {
+  font-size: 22px;
+  height: "auto";
+  width: "auto";
+  padding: 15px;
+  margin: 20px;
+}
