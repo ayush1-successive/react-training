@@ -12,8 +12,8 @@ const ProductList = () => {
     <>
       <nav>
         {products.map(({ id, name }) => (
-          <ul>
-            <li style={{ fontSize: 24 }} key={`products/${id}`}>
+          <ul key={`products/${id}`}>
+            <li style={{ fontSize: 24 }}>
               <Link to={`${id}`}>{name}</Link>
             </li>
           </ul>

@@ -1,7 +1,7 @@
 // Task-4
 
-import { createContext, useState } from "react";
-import { About } from "../../../../components/About";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const loginStyle = {
   border: "2px solid black",
@@ -15,25 +15,23 @@ const loginStyle = {
   margin: "50px auto",
 };
 
-export const AuthenticationContext = createContext();
-
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setAuthenticated] = useState(false);
 
   const correctUserName = "ayush";
   const correctPassword = "123456";
 
+  const navigate = useNavigate();
+
   const handleAuthentication = () => {
     if (correctUserName !== username || correctPassword !== password) {
       console.log("Invalid Credentials");
-      setAuthenticated(false);
       return;
     }
 
     console.log("User Authenticated");
-    setAuthenticated(true);
+    navigate("../about", { state: { isAuthenticated: true } });
   };
 
   return (
@@ -60,7 +58,6 @@ const LoginComponent = () => {
           Login
         </button>
       </div>
-      {isAuthenticated && <About name={username} />}
     </>
   );
 };

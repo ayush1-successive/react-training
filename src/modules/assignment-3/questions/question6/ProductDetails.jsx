@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import productsData from "./ProductData";
 import "../../index.css";
 
@@ -18,16 +18,22 @@ const productStyles = {
 const ProductDetails = () => {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
       {Object.entries(productsData[id]).map(([key, value]) => (
-        <pre style={productStyles}>
+        <pre style={productStyles} key={key}>
           {key} {"=>"} {value}
         </pre>
       ))}
 
       <div style={{ textAlign: "center", margin: "20px auto" }}>
-        <Link style={{ fontSize: 32 }} to="/products">
+        <Link onClick={handleGoBack} style={{ fontSize: 32 }} to="../products">
           Go back
         </Link>
       </div>
