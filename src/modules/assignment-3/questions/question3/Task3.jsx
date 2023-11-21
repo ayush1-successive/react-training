@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../index.css";
 
 const Task3 = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <h2 className="task-text">
@@ -13,16 +15,21 @@ const Task3 = () => {
       <nav>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="../home">
-              Home
-            </Link>
+            <div>
+              <Link
+                onClick={() => navigate(-2, { replace: true })}
+                style={{ fontSize: 24 }}
+              >
+                Back to HomePage
+              </Link>
+            </div>
           </li>
           <li>
             <Link
               style={{
                 fontSize: 24,
               }}
-              to="../about"
+              to="about"
             >
               About
             </Link>

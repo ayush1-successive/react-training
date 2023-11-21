@@ -15,7 +15,7 @@ const Task6 = () => {
       <nav>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="/products">
+            <Link style={{ fontSize: 24 }} to="products">
               Product List
             </Link>
           </li>

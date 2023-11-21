@@ -18,22 +18,22 @@ const Assignment3 = () => {
       <h1 className="task-text">Assignment-3 Page</h1>
 
       <nav style={navStyle}>
-        <Link style={linkStyle} to="/task-1">
+        <Link style={linkStyle} to="task-1">
           Task-1
         </Link>
-        <Link style={linkStyle} to="/task-2">
+        <Link style={linkStyle} to="task-2">
           Task-2
         </Link>
-        <Link style={linkStyle} to="/task-3">
+        <Link style={linkStyle} to="task-3">
           Task-3
         </Link>
-        <Link style={linkStyle} to="/task-4">
+        <Link style={linkStyle} to="task-4">
           Task-4
         </Link>
-        <Link style={linkStyle} to="/task-5">
+        <Link style={linkStyle} to="task-5">
           Task-5
         </Link>
-        <Link style={linkStyle} to="/task-6">
+        <Link style={linkStyle} to="task-6">
           Task-6
         </Link>
       </nav>

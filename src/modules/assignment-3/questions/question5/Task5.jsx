@@ -1,4 +1,4 @@
-import { Link, Outlet, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import "../../index.css";
 import Profile from "./Profile";
 import Dashboard from "./Dashboard";
@@ -18,21 +18,21 @@ const Task5 = () => {
       <nav>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="dashboard">
+            <Link to="dashboard" style={{ fontSize: 24 }}>
               Dashboard
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="profile">
+            <Link to="profile" style={{ fontSize: 24 }}>
               Profile
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="setting">
+            <Link to="setting" style={{ fontSize: 24 }}>
               Setting
             </Link>
           </li>
@@ -45,7 +45,6 @@ const Task5 = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="setting" element={<Setting />} />
       </Routes>
-      <Outlet />
     </>
   );
 };

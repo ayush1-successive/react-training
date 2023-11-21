@@ -2,21 +2,15 @@
 
 import React, { createContext, useState } from "react";
 import ChildComponent from "./ChildComponent";
+import { STATE_LOGOUT } from "../../utils/constants";
 
 export const AuthenticationContext = createContext();
 
 const ParentComponent = () => {
-  const [status, setStatus] = useState("Logged out");
-
-  const handleLogin = () => {
-    if (status === "Logged in") setStatus("Please log in");
-    else setStatus("Logged in");
-  };
+  const [status, setStatus] = useState(STATE_LOGOUT);
 
   return (
-    <AuthenticationContext.Provider
-      value={{ status, handleLogin, user: "Ayush" }}
-    >
+    <AuthenticationContext.Provider value={{ status, setStatus }}>
       <ChildComponent />
     </AuthenticationContext.Provider>
   );
