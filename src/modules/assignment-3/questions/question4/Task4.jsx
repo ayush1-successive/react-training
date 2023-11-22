@@ -17,7 +17,7 @@ const Task4 = () => {
       <nav>
         <ul>
           <li>
-            <Link style={{ fontSize: 24 }} to="../login">
+            <Link style={{ fontSize: 24 }} to="login">
               Login
             </Link>
           </li>
