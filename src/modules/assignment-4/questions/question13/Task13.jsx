@@ -3,8 +3,11 @@ import { Button, FormControl, FormGroup, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import "../Styles.css";
+import { useState } from "react";
 
 const Task13 = () => {
+  const [submitted, setSubmitted] = useState(false);
+
   const validationSchema = yup.object({
     username: yup.string().required("Name is required").min(6),
     phoneNo: yup
@@ -14,8 +17,31 @@ const Task13 = () => {
       .test("is-ten-digits", "Phone number must be 10 digits long", (value) =>
         value ? value.toString().length === 10 : false
       ),
-    password: yup.string().required("Password is required").min(8),
-    email: yup.string().email(),
+    password: yup
+      .string()
+      .required("Password is required")
+      .min(8)
+      .test(
+        "strength-check",
+        "password strength-check failed",
+        function (value) {
+          const strongRegex = new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"
+          );
+
+          return strongRegex.test(value);
+        }
+      ),
+    email: yup
+      .string()
+      .email()
+      .test("domain-check", "email domain check failed", function (value) {
+        if (!value) return true;
+
+        const domainPattern = new RegExp("^[a-zA-Z]+[.][a-zA-Z]+$");
+        const domain = value.split("@")[1];
+        return domainPattern.test(domain);
+      }),
   });
 
   const formik = useFormik({
@@ -27,6 +53,8 @@ const Task13 = () => {
     },
     onSubmit: (values) => {
       console.log(values);
+      setSubmitted(true);
+      console.log("Submitted:", submitted);
     },
     validationSchema: validationSchema,
   });
@@ -86,6 +114,7 @@ const Task13 = () => {
           Submit
         </Button>
       </FormGroup>
+      {submitted && <h2 style={{ color: "#1b5e20" }}>Form submitted!</h2>}
     </>
   );
 };

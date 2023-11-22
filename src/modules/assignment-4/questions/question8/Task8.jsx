@@ -21,21 +21,36 @@ const Task8 = () => {
     <>
       <h2>TEMPERATURE CONVERTER</h2>
 
-      <input
-        type="text"
-        value={tempC}
-        id="celsius"
-        placeholder="Celsius"
-        onChange={handleUserTemp}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            type="text"
+            value={tempC}
+            id="celsius"
+            placeholder="Celsius"
+            onChange={handleUserTemp}
+          />
+          <h2 style={{ width: 200 }}>Degree Celsius</h2>
+        </div>
 
-      <input
-        type="text"
-        value={tempF}
-        placeholder="fahrenheit"
-        id="fahrenheit"
-        onChange={handleUserTemp}
-      />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            type="text"
+            value={tempF}
+            placeholder="fahrenheit"
+            id="fahrenheit"
+            onChange={handleUserTemp}
+          />
+          <h2 style={{ width: 200 }}>Fahrenheit</h2>
+        </div>
+      </div>
     </>
   );
 };
