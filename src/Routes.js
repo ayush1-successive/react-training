@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components";
 import { ErrorPage } from "./components/ErrorPage";
-import { Assignment1, Assignment2, Assignment3 } from "./modules";
+import { Assignment1, Assignment2, Assignment3, Assignment4 } from "./modules";
 
 import Task1 from "./modules/assignment-3/questions/question1/Task1";
 import Task2 from "./modules/assignment-3/questions/question2/Task2";
@@ -41,6 +41,7 @@ const Router = () => {
             <Route path="products/:id" element={<ProductDetails />} />
           </Route>
         </Route>
+        <Route path="/assignment-4" element={<Assignment4 />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
