@@ -1,15 +1,24 @@
 import { Button, FormControl, FormGroup, TextField } from "@mui/material";
 import "../Styles.css";
 
-import * as yup from "yup";
 import { useFormik } from "formik";
+import * as yup from "yup";
 
 const Task10 = () => {
   const validationSchema = yup.object({
     username: yup.string().required("Name is required").min(6),
     age: yup.number().positive().integer(),
     password: yup.string().required("Password is required").min(8),
-    email: yup.string().email(),
+    email: yup
+      .string()
+      .email()
+      .test("domain-check", "email domain check failed", function (value) {
+        if (!value) return true;
+
+        const domainPattern = new RegExp("^[a-zA-Z]+[.][a-zA-Z]+$");
+        const domain = value.split("@")[1];
+        return domainPattern.test(domain);
+      }),
   });
 
   const formik = useFormik({
@@ -19,9 +28,11 @@ const Task10 = () => {
       email: "",
       password: "",
     },
+
     onSubmit: (values) => {
       console.log(values);
     },
+
     validationSchema: validationSchema,
   });
 
@@ -68,6 +79,7 @@ const Task10 = () => {
           <TextField
             label="password"
             variant="outlined"
+            type="password"
             value={formik.values.password}
             style={{ width: "50%" }}
             error={formik.touched.password && Boolean(formik.errors.password)}
