@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-// Give a delay in ms.
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const Task3 = () => {
   const apiUrl = "https://jsonplaceholder.typicode.com/users";
 
@@ -12,7 +9,6 @@ const Task3 = () => {
   const fetchData = async () => {
     setUsers([]);
     setLoading(true);
-    await delay(2000);
 
     const response = await fetch(apiUrl);
     const data = await response.json();

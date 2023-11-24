@@ -18,8 +18,12 @@ import Task5 from "./modules/assignment-3/questions/question5/Task5";
 import Task6 from "./modules/assignment-3/questions/question6/Task6";
 import ProductDetails from "./modules/assignment-3/questions/question6/ProductDetails";
 import ProductList from "./modules/assignment-3/questions/question6/ProductList";
+import SampleComponent from "./modules/assignment-5/questions/question14/SampleComponent";
+import withAuth from "./modules/assignment-5/questions/question14/withAuth";
 
 const Router = () => {
+  const SampleComponentWithAuth = withAuth(SampleComponent);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -47,6 +51,10 @@ const Router = () => {
         </Route>
         <Route path="/assignment-4" element={<Assignment4 />} />
         <Route path="/assignment-5" element={<Assignment5 />} />
+        <Route
+          path="/assignment-5/sample"
+          element={<SampleComponentWithAuth />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

@@ -8,9 +8,6 @@ const Task2 = () => {
 
   const fetchData = async () => {
     try {
-      // For causing random error during API fetch
-      if (Math.random() < 0.3) throw new Error("Random Error!");
-
       const response = await fetch(apiUrl);
       const data = await response.json();
 

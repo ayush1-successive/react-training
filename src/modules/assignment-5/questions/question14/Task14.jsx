@@ -5,8 +5,8 @@ const Task14 = () => {
   return (
     <div>
       <nav>
-        <Link style={{ fontSize: 24 }} to="/dashboard">
-          Dashboard
+        <Link style={{ fontSize: 24 }} to="sample">
+          To Sample Component
         </Link>
       </nav>
     </div>

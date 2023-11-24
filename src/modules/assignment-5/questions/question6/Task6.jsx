@@ -11,9 +11,6 @@ const Task6 = () => {
     try {
       setUsers([]);
 
-      // For causing random error during API fetch
-      if (Math.random() < 0.3) throw new Error("Random Error!");
-
       const response = await axios.get(apiUrl);
 
       setUsers(response.data.map((elem) => elem.name));

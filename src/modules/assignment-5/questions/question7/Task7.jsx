@@ -24,10 +24,10 @@ const Task7 = () => {
       "X-RapidAPI-Host": "onecompiler-apis.p.rapidapi.com",
     },
     data: {
-      language: "python",
+      language: "javascript",
       files: [
         {
-          name: "index.py",
+          name: "index.js",
           content: "",
         },
       ],
@@ -69,7 +69,7 @@ const Task7 = () => {
         <textarea
           type="text"
           id="input-code"
-          placeholder="Write your python code."
+          placeholder="Write your JavaScript code."
           style={textareaStyle}
           onChange={(e) => setInput(e.target.value)}
         />

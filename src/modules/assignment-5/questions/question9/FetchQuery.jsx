@@ -4,7 +4,7 @@ import { GET_ALL_PEOPLE } from "./graphsql";
 import { DataGrid } from "@mui/x-data-grid";
 
 const FetchQuery = () => {
-  const { data, loading, error } = useQuery(GET_ALL_PEOPLE);
+  const { data, loading } = useQuery(GET_ALL_PEOPLE);
   const [peopleData, setpeopleData] = useState([]);
 
   useEffect(() => {
