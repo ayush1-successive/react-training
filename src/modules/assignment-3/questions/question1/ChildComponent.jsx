@@ -1,8 +1,14 @@
 // Task-1
 
 import { useContext, useEffect, useState } from "react";
-import { AuthenticationContext } from "./ParentComponent";
 import "../../index.css";
+import {
+  BUTTON_LOGIN,
+  BUTTON_LOGOUT,
+  STATE_LOGIN,
+  STATE_LOGOUT,
+} from "../../utils/constants";
+import { AuthenticationContext } from "./ParentComponent";
 
 const messageStyle = {
   padding: "5px",
@@ -13,30 +19,57 @@ const messageStyle = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  margin: "auto",
+  margin: "15px auto",
   fontSize: 32,
   width: "20%",
 };
 
 const ChildComponent = () => {
-  const { status, handleLogin, user } = useContext(AuthenticationContext);
+  const { status, setStatus } = useContext(AuthenticationContext);
 
   const [message, setMessage] = useState("");
-  const [buttonMessage, setButtonMessage] = useState("Login");
+  const [username, setUsername] = useState("");
+
+  const [buttonMessage, setButtonMessage] = useState(BUTTON_LOGOUT);
+
+  const handleLogin = () => {
+    if (status === STATE_LOGIN) {
+      setStatus(STATE_LOGOUT);
+      setUsername("");
+    } else {
+      if (username === "") return;
+      setStatus(STATE_LOGIN);
+    }
+  };
 
   useEffect(() => {
-    if (status === "Logged in") {
-      setMessage("Welcome " + user);
-      setButtonMessage("Logout");
+    if (status === STATE_LOGIN) {
+      setMessage("Welcome " + username);
+      setButtonMessage(BUTTON_LOGOUT);
     } else {
       setMessage("Please log in");
-      setButtonMessage("Login");
+      setButtonMessage(BUTTON_LOGIN);
     }
-  }, [user, status]);
+  }, [username, status]);
 
   return (
     <>
       <div style={messageStyle}>{message}</div>
+      {status === STATE_LOGOUT && (
+        <input
+          className="button-style"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "15px auto",
+          }}
+          type="text"
+          placeholder="Enter Username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      )}
       <button className="login-button" onClick={() => handleLogin()}>
         {buttonMessage}
       </button>

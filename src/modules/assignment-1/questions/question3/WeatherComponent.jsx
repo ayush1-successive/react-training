@@ -2,14 +2,20 @@
 const WeatherComponent = (props) => {
   const { temperature } = props;
 
+  let message;
+  let color;
+
+  if (temperature > 25) {
+    message = `${temperature}: It's a sunny day`;
+    color = "red";
+  } else if (temperature < 10) {
+    message = `${temperature}: It's a cold day`;
+    color = "blue";
+  }
+
   return (
     <>
-      {temperature > 25 && (
-        <h2 style={{ color: "red" }}> {temperature}: It's sunny day</h2>
-      )}
-      {temperature < 10 && (
-        <h2 style={{ color: "blue" }}>{temperature}: It's cold day</h2>
-      )}
+      <h2 style={{ color }}> {message}</h2>
     </>
   );
 };

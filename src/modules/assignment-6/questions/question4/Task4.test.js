@@ -1,10 +1,15 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import React from "react";
 import LoginComponent from "../../../assignment-3/questions/question4/LoginComponent";
+import { BrowserRouter } from "react-router-dom";
 
 test("Entering text in the input field updates the username", () => {
-  render(<LoginComponent />);
+  render(
+    <BrowserRouter>
+      <LoginComponent />
+    </BrowserRouter>
+  );
 
   const inputUsernameElement = screen.getByPlaceholderText("Your username");
   fireEvent.change(inputUsernameElement, { target: { value: "textUser" } });
@@ -13,7 +18,11 @@ test("Entering text in the input field updates the username", () => {
 });
 
 test("Entering text in the password field updates the password", () => {
-  render(<LoginComponent />);
+  render(
+    <BrowserRouter>
+      <LoginComponent />
+    </BrowserRouter>
+  );
 
   const inputPasswordElement = screen.getByPlaceholderText("Your password");
   fireEvent.change(inputPasswordElement, { target: { value: "pass1234" } });
@@ -21,8 +30,12 @@ test("Entering text in the password field updates the password", () => {
   expect(inputPasswordElement).toHaveValue("pass1234");
 });
 
-test("Clicking login button handles authentication process", () => {
-  render(<LoginComponent />);
+test("Clicking login button handles authentication process", async () => {
+  render(
+    <BrowserRouter>
+      <LoginComponent />
+    </BrowserRouter>
+  );
 
   const inputUsernameElement = screen.getByPlaceholderText("Your username");
   const inputPasswordElement = screen.getByPlaceholderText("Your password");
@@ -32,5 +45,7 @@ test("Clicking login button handles authentication process", () => {
   fireEvent.change(inputPasswordElement, { target: { value: "123456" } });
   fireEvent.click(loginButton);
 
-  expect(screen.getByText("This is About Page.")).toBeInTheDocument();
+  await waitFor(() => {
+    expect(window.location.pathname).toBe("/about");
+  });
 });
