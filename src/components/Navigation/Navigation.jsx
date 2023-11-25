@@ -30,6 +30,10 @@ const Navigation = () => {
         <Link style={linkStyle} to="/assignment-4">
           Assignment-4
         </Link>
+
+        <Link style={linkStyle} to="/assignment-5">
+          Assignment-5
+        </Link>
       </nav>
     </>
   );
