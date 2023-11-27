@@ -6,6 +6,7 @@ import {
   Assignment3,
   Assignment4,
   Assignment5,
+  Assignment6,
 } from "./modules";
 
 import Task1 from "./modules/assignment-3/questions/question1/Task1";
@@ -55,6 +56,7 @@ const Router = () => {
           path="/assignment-5/sample"
           element={<SampleComponentWithAuth />}
         />
+        <Route path="/assignment-6" element={<Assignment6 />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
